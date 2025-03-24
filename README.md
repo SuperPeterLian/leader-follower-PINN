@@ -15,7 +15,7 @@ This project uses a Physics-Informed Neural Network (PINN) to estimate diffusion
 
 The training dataset is available as a compressed archive in the Releases page:
 
-📦 **[Download `data.zip`](https://github.com/SuperPeterLian/leader-follower-PINN/releases)**
+**[Download `data.zip`](https://github.com/SuperPeterLian/leader-follower-PINN/releases)**
 
 After downloading:
 1. Extract the archive to get a `data/` folder  
