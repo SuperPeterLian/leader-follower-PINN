@@ -5,10 +5,10 @@ The model simultaneously fits spatiotemporal data and enforces governing PDE con
 
 ---
 
-## 🧠 Project Summary
+## Project Summary
 
 This project uses a Physics-Informed Neural Network (PINN) to estimate diffusion, adhesion, and chemotaxis-related parameters in a biologically-inspired PDE system governing the interaction between leader and follower cells. The model is trained using both data fidelity loss and physics-based residual loss.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
