@@ -11,4 +11,40 @@ This project uses a Physics-Informed Neural Network (PINN) to estimate diffusion
 
 ---
 
-## Project Structure
+## Dataset
+
+The training dataset is available as a compressed archive in the Releases page:
+
+📦 **[Download `data.zip`](https://github.com/SuperPeterLian/leader-follower-PINN/releases)**
+
+After downloading:
+1. Extract the archive to get a `data/` folder  
+2. Place `data/` in the root directory  
+3. Open and run `main.ipynb`
+
+---
+
+## Parameters Learned
+
+The PINN estimates the following 8 physical parameters:
+
+| Parameter | Description |
+|----------|-------------|
+| `D_l`, `D_f` | Diffusion coefficients (leaders, followers) |
+| `α_l`, `α_f`, `α_fl` | Adhesion coefficients |
+| `κ`        | Adhesive flux scaling |
+| `χ`, `β`   | Chemotaxis strength & gradient scaling |
+
+The model enforces:
+- Diffusion hierarchy: `D_l >> D_f`
+- Adhesion hierarchy: `α_fl > α_f > α_l`
+- All parameters positive via `softplus` or `sigmoid`
+
+---
+
+## How to Run
+
+1. Download this repository:
+   ```bash
+   git clone https://github.com/SuperPeterLian/leader-follower-PINN.git
+   cd leader-follower-PINN
