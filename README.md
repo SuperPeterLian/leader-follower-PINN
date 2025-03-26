@@ -13,7 +13,7 @@ This project uses a Physics-Informed Neural Network (PINN) to estimate diffusion
 
 ## Dataset
 
-We use the data/
+We use the data/data11/4/ to recover parameters.
 
 The training dataset is available as a compressed archive in the Releases page:
 
