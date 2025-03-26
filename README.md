@@ -1,13 +1,20 @@
-# Physics-Informed Neural Network for Leader–Follower Cell Invasion Modeling
+# Leader–Follower Cell Invasion Modeling via PINN and SINDy
 
-This repository contains a PINN-based parameter inference framework for a leader–follower partial differential equation (PDE) model of collective cancer cell migration.  
-The model simultaneously fits spatiotemporal data and enforces governing PDE constraints, recovering 8 biophysical parameters.
+This repository implements approaches for identifying biophysical parameters in a PDE-based model of collective cancer cell migration, where **leader** and **follower** cells obey coupled nonlinear partial differential equations.  
+The goal is to **recover 8 key parameters** (diffusion, adhesion, chemotaxis) from the data.
 
 ---
 
-## Project Summary
+# Methods
 
-This project uses a Physics-Informed Neural Network (PINN) to estimate diffusion, adhesion, and chemotaxis-related parameters in a biologically-inspired PDE system governing the interaction between leader and follower cells. The model is trained using both data fidelity loss and physics-based residual loss.
+The methods we used to recover parameters:
+
+1. **Physics-Informed Neural Networks (PINN):**  
+   A deep learning framework that simultaneously fits spatiotemporal cell density data and enforces the governing PDE constraints, allowing accurate recovery of 8 key biophysical parameters from noisy or sparse data.
+
+2. **Sparse Identification of Nonlinear Dynamics (SINDy):**  
+   A regression-based method that constructs a library of candidate PDE terms and recovers governing equations and parameter combinations by solving a sparse linear system.  
+   Our implementation uses custom dictionaries and multiple regression techniques (Ridge, Lasso, ElasticNet, Huber) to recover interpretable combinations of diffusion, adhesion, and chemotactic parameters.
 
 ---
 
@@ -22,13 +29,13 @@ The training dataset is available as a compressed archive in the Releases page:
 After downloading:
 1. Extract the archive to get a `data/` folder  
 2. Place `data/` in the root directory  
-3. Open and run `main.ipynb`
+3. Can operate the PINN code and SINDy code
 
 ---
 
 ## Parameters Learned
 
-The PINN estimates the following 8 physical parameters:
+We tried to estimates the following 8 physical parameters:
 
 | Parameter | Description |
 |----------|-------------|
@@ -37,16 +44,15 @@ The PINN estimates the following 8 physical parameters:
 | `κ`        | Adhesive flux scaling |
 | `χ`, `β`   | Chemotaxis strength & gradient scaling |
 
+
 The model enforces:
 - Diffusion hierarchy: `D_l >> D_f`
 - Adhesion hierarchy: `α_fl > α_f > α_l`
 - All parameters positive via `softplus` or `sigmoid`
 
----
 
-## How to Run
 
-1. Download this repository:
-   ```bash
-   git clone https://github.com/SuperPeterLian/leader-follower-PINN.git
-   cd leader-follower-PINN
+
+
+
+
